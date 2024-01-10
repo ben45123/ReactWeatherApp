@@ -4,6 +4,8 @@ import TopButtons from './components/TopButtons';
 import Inputs from './components/Inputs';
 import TimeAndLocation from './components/TimeAndLocation';
 import TemperatureAndDetails from './components/TemperatureAndDetails';
+import Forecast from './components/Forecast';
+import DailyForecast from './components/DailyForecast';
 
 {/*Adjust the app color(blue gradients for clear blue skies), and then add all of the components one layer at a time.*/}
 function App() {
@@ -14,6 +16,8 @@ function App() {
       
       <TimeAndLocation/>
       <TemperatureAndDetails/>
+      <Forecast t="hourly forecast"/>
+      <DailyForecast/>
     </div>
   );
 }

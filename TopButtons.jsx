@@ -15,15 +15,15 @@ function TopButtons() {
     },
     {
       id: 3,
-      title: "Munich",
+      title: "Los Angeles",
     },
     {
       id: 4,
-      title: "Moscow",
+      title: "Boston",
     },
     {
       id: 5,
-      title: "Barcelona",
+      title: "Chicago",
     },
   ];
 
@@ -32,7 +32,7 @@ function TopButtons() {
      Also map the city to the city ID.*/
   }
   return (
-    <div className="flex items-center justify-around my-6">
+    <div className="flex items-center justify-around my-5">
       {cities.map((city) => (
         <button
           key={city.id}

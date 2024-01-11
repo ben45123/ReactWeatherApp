@@ -28,6 +28,23 @@
   color: #61dafb;
 }
 
+.text-custom {
+  font-size: 10rem; /* Adjust the value as needed */
+}
+
+
+.custom-width {
+  width: 30cm; /* Adjust the value as needed */
+}
+
+.my-custom-margin-left {
+  margin-left: 35rem; /* Adjust the value as needed */
+}
+
+.my-custom-margin-right {
+  margin-right: 32rem; /* Adjust the value as needed */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

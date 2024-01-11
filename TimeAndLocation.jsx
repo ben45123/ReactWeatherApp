@@ -8,11 +8,11 @@ function TimeAndLocation() {
     <div>
       <div className="flex items-center justify-center my-6">
         <div className="text-white text-xl font-extralight">
-          Saturday, 17 June 2023 | Local time: 9:01 PM
+          Saturday, 17 June 2023 | Local time: 3:01 PM
         </div>
       </div>
 
-      <div className="flex items-center justify-center my-3">
+      <div className="flex items-center justify-center my-6">
         <p className="text-white text-3xl font-medium">Albertson, NY</p>
       </div>
     </div>

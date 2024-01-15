@@ -10,6 +10,24 @@ import {
 } from "@iconscout/react-unicons";
 import { formatToLocalTime, iconURL } from "../services/weatherService";
 
+/**
+ * TemperatureAndDetails component displays temperature and weather details.
+ *
+ * @param {Object} weather - Object containing weather information.
+ * @param {string} weather.details - Weather details ("Clear Sky", "Cloudy", "Rainy").
+ * @param {string} weather.icon - Weather icon code.
+ * @param {number} weather.temp - Current temperature.
+ * @param {number} weather.temp_min - Minimum temperature.
+ * @param {number} weather.temp_max - Maximum temperature.
+ * @param {number} weather.sunrise - Sunrise time (Unix timestamp).
+ * @param {number} weather.sunset - Sunset time (Unix timestamp).
+ * @param {number} weather.windSpeed - Wind speed.
+ * @param {number} weather.humidity - Humidity percentage.
+ * @param {number} weather.feels_like - Real feel temperature.
+ * @param {string} weather.timezone - Timezone of the location.
+ *
+ * @returns {JSX.Element} The rendered TemperatureAndDetails component.
+ */
 function TemperatureAndDetails({
   weather: {
     details,
@@ -39,13 +57,8 @@ function TemperatureAndDetails({
         </p>
       </div>
 
-      <div className=" flex flex-row items-center justify-center text-white">
-        <img
-          //src={iconURL(icon)}
-          src="https://cdn4.iconfinder.com/data/icons/iconsland-weather/PNG/256x256/Sunny.png"
-          alt=""
-          className="w-28"
-        />
+      <div className="flex flex-row items-center justify-center text-white">
+        <img src={iconURL(icon)} alt="" className="w-28" />
         <p className="text-8xl my-custom-margin-left my-custom-margin-right">
           {`${temp.toFixed()}°`}
         </p>

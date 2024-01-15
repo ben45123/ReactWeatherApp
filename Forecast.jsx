@@ -1,70 +1,44 @@
 import React from "react";
+import { iconURL } from "../services/weatherService";
 
-function Forecast({ t }) {
+/**
+ * Forecast component displays weather forecast information.
+ *
+ * @param {string} title - The title of the forecast ("Daily" or "Hourly").
+ * @param {Array} items - An array of forecast items, each containing title, icon, and temperature.
+ *
+ * @returns {JSX.Element} The rendered Forecast component.
+ */
+function Forecast({ title, items }) {
   return (
     <div>
       <div className="flex items-center my-4">
-        <p className="text-white font-medium uppercase text-2xl">{t}</p>
+        <p className="text-white font-medium uppercase text-2xl">{title}</p>
       </div>
       <hr className="my-3"></hr>
       <div className="flex flex-row items-center justify-between text-white">
-        <div className="flex flex-col items-center">
-          <p className="font-light text-xl">4:00PM</p>
-          <img
-            src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-01-512.png"
-            alt=""
-            className="h-12"
-          />
-          <p className="text-xl">66°</p>
-        </div>
-        <div className="flex flex-col items-center">
-          <p className="font-light text-xl">6:00PM</p>
-          <img
-            src="https://cdn3.iconfinder.com/data/icons/weather-715/512/31_Partly_Cloudy-512.png"
-            alt=""
-            className="h-12"
-          />
-          <p className="text-xl">65°</p>
-        </div>
-        <div className="flex flex-col items-center">
-          <p className="font-light text-xl">7:14PM</p>
-          <img
-            src="https://cdn3.iconfinder.com/data/icons/weather-free-1/32/Weather_Free_Filled_Outline_sunset-weather-evening-512.png"
-            alt=""
-            className="h-12"
-          />
-          <p className="text-xl">64°</p>
-        </div>
-        <div className="flex flex-col items-center">
-          <p className="font-light text-xl">8:00PM</p>
-          <img
-            src="https://cdn3.iconfinder.com/data/icons/weather-715/512/03_Overcast-512.png"
-            alt="Weather Icon"
-            className="h-12"
-          />
-          <p className="text-xl">64°</p>
-        </div>
-        <div className="flex flex-col items-center">
-          <p className="font-light text-xl">10:00PM</p>
-          <img
-            src="https://cdn3.iconfinder.com/data/icons/weather-715/512/03_Overcast-512.png"
-            alt=""
-            className="h-12"
-          />
-          <p className="text-xl">62°</p>
-        </div>
-        <div className="flex flex-col items-center">
-          <p className="font-light text-xl">12:00AM</p>
-          <img
-            src="https://cdn3.iconfinder.com/data/icons/weather-715/512/19_Night_Cloud-512.png"
-            alt=""
-            className="h-12"
-          />
-          <p className="text-xl">61°</p>
-        </div>
+        {items.map((item, index) => (
+          <div key={index} className="flex flex-col items-center">
+            <p className="font-light text-xl">{item.title}</p>
+            <img src={iconURL(item.icon)} alt="" className="h-12" />
+            <p className="text-xl">
+              {kelvinToFahrenheit(item.temp).toFixed()}°
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
+}
+
+/**
+ * Converts temperature from Kelvin to Fahrenheit.
+ *
+ * @param {number} kelvin - Temperature in Kelvin.
+ * @returns {number} Temperature in Fahrenheit.
+ */
+function kelvinToFahrenheit(kelvin) {
+  return ((kelvin - 273.15) * 9) / 5 + 32;
 }
 
 export default Forecast;
